@@ -1,5 +1,5 @@
 {
-  "name": "shape-tracker",
+  "name": "lizzo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,15 +11,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/NicksFed/shapetracker.git"
+    "url": "git+https://github.com/xayananh4/spotify_temp"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/NicksFed/shapetracker/issues"
+    "url": "https://github.com/xayananh4/spotify_temp"
   },
-  "homepage": "https://github.com/NicksFed/shapetracker#readme",
+  "homepage": "https://github.com/xayananh4/spotify_temp#readme",
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@babel/plugin-transform-modules-commonjs": "^7.18.6",
