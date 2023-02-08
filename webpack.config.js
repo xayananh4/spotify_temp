@@ -11,7 +11,9 @@ module.exports = {
   },
   devtool: 'eval-source-map',
   devServer: {
-    contentBase: './dist'
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
   },
   plugins: [
     new ESLintPlugin(),
@@ -19,18 +21,38 @@ module.exports = {
     new HtmlWebpackPlugin({
       title: 'Shape Tracker',
       template: './src/index.html',
-      inject: 'body'
+      inject: 'body',
+      filename: 'index.html'
     })
   ],
   module: {
     rules: [
+
       {
+        test:/\.html$/,
+        use: [
+          'html-loader'
+        ]
+      },
+      {     
         test: /\.css$/,
         use: [
           'style-loader',
           'css-loader'
         ]
-      }
+      },
+      {
+        test: /\.(gif|png|avif|jpe?g)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'assets/images/'
+            }
+          }
+        ]
+      },
     ]
   }
 };

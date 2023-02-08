@@ -1,20 +1,32 @@
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/styles.css';
-import Triangle from './triangle.js';
-function handleTriangleForm() {
-  event.preventDefault();
-  document.querySelector('#response').innerText = null;
-  const length2 = parseInt(document.querySelector('#length2').value);
-  const length1 = parseInt(document.querySelector('#length1').value);
-  const length3 = parseInt(document.querySelector('#length3').value);
-  const triangle = new Triangle(length1, length2, length3);
-  const response = triangle.checkType();
-  const pTag = document.createElement("p");
-  pTag.append(response);
-  document.querySelector('#response').append(pTag);
+
+function getDinoName() {
+  let request = new XMLHttpRequest();
+  const url = `https://dinoipsum.com/api/?format=json&words=1&paragraphs=1`;
+
+  request.addEventListener("loadend", function () {
+    const response = JSON.parse(this.responseText);
+  
+    if (this.status === 200) {
+      document.getElementById("hidden1").style.display = "block";
+     
+      return response;
+      // printElements(response);
+    } else {
+
+
+      // printError(this, response, city);
+    }
+  });
+
+  request.open("GET", url);
+  request.send();
 }
 
-window.addEventListener("load", function() {
-  document.querySelector("#triangle-checker-form").addEventListener("submit", handleTriangleForm);
+
+window.addEventListener("load", function () {
+  document.getElementById("form1").addEventListener("submit", getDinoName);
+
 });
